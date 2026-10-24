@@ -69,3 +69,20 @@ export interface PatientListItem {
   lastVisit: string;
   physicianName: string;
 }
+
+// ─── Patient Queue ─────────────────────────────────────────────────────────────
+export type QueueStatus = "Waiting" | "InConsultation" | "Completed";
+export type QueuePriority = "Routine" | "Urgent" | "Emergency";
+
+export interface QueueEntry {
+  id: string;
+  patientId: string;
+  patientName: string;
+  age: number;
+  gender: Gender;
+  reason: string;
+  physicianName: string;
+  priority: QueuePriority;
+  status: QueueStatus;
+  arrivedAt: string; // ISO datetime string
+}
